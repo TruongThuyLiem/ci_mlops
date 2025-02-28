@@ -5,5 +5,4 @@ pandas
 numpy
 matplotlib
 pyyaml
-pickle
 scikit-learn
