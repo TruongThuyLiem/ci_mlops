@@ -27,7 +27,7 @@ def promte_model_to_production():
         return
     latest_staging_version = staging_versions[0]
     staging_version_number = latest_staging_version.version
-    production_version = client.get_latest(model_name, stages= ['Production'])
+    production_version = client.get_latest_versions(model_name, stages= ['Production'])
     if production_version:
         current_production_version = production_version[0]
         production_version_number = current_production_version.version
