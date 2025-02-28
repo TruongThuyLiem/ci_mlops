@@ -58,10 +58,10 @@ class TestModelLoading(unittest.TestCase):
         precision = precision_score(y_test, y_pred)
         recall = recall_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred)
-        self.assertGreaterEqual(acc, 0,3, "acc < 0.3")
-        self.assertGreaterEqual(precision, 0,3, "precision < 0.3")
-        self.assertGreaterEqual(recall, 0,3, "recall < 0.3")
-        self.assertGreaterEqual(f1, 0,3, "f1 < 0.3")
+        self.assertGreaterEqual(acc, 0.3, "acc < 0.3")
+        self.assertGreaterEqual(precision, 0.3, "precision < 0.3")
+        self.assertGreaterEqual(recall, 0.3, "recall < 0.3")
+        self.assertGreaterEqual(f1, 0.3, "f1 < 0.3")
 
 if __name__ == "__main__":
     unittest.main()
