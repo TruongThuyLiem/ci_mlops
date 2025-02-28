@@ -1,6 +1,6 @@
 mlflow
 seaborn
-daghub
+dagshub
 pandas
 numpy
 matlpotlib
