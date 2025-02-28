@@ -2,15 +2,27 @@ import json
 from mlflow.tracking import MlflowClient
 import mlflow
 
-import dagshub
-dagshub.init(repo_owner='TruongThuyLiem', repo_name='ci_mlops', mlflow=True)
+# import dagshub
+# dagshub.init(repo_owner='TruongThuyLiem', repo_name='ci_mlops', mlflow=True)
 
-# Set the experiment name in MLflow
+# # Set the experiment name in MLflow
 
-mlflow.set_experiment("Final_Model")
+# mlflow.set_experiment("Final_Model")
 
-# Set the tracking URI for MLflow to log the experiment in DagsHub
-mlflow.set_tracking_uri("https://dagshub.com/TruongThuyLiem/ci_mlops.mlflow") 
+# # Set the tracking URI for MLflow to log the experiment in DagsHub
+# mlflow.set_tracking_uri("https://dagshub.com/TruongThuyLiem/ci_mlops.mlflow") 
+
+import os
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_TOKEN is not set")
+os.environ['MLFLOW_TRACKING_USERNAME'] = dagshub_token
+os.environ['MLFLOW_TRACKING_PASSWORD'] = dagshub_token
+dagshub_url = 'https://dagshub.com/'
+repo_owner = "TruongThuyLiem"
+repo_name = "ci_mlops"
+mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
+mlflow.set_experiment("Final_model")
 # Load the run ID and model name from the saved JSON file
 reports_path = "reports/run_info.json"
 with open(reports_path, 'r') as file:

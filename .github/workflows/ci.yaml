@@ -18,5 +18,7 @@ jobs:
           pip install -r requirements.txt
           pip install dvc
       - name: Run DVC pipeline
+        evn:
+          DAGSHUB_TOKEN: ${{secrets.DAGSHUB_TOKEN}}
         run: |
           dvc repro
