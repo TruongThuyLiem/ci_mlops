@@ -3,7 +3,7 @@ seaborn
 dagshub
 pandas
 numpy
-matlpotlib
+matplotlib
 pyyaml
 pickle
 scikit-learn
